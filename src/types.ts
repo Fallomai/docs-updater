@@ -153,25 +153,45 @@ export interface GeneratedContent {
   };
 }
 
+export interface CommitInfo {
+  files: Array<{
+    path: string;
+    diff: string;
+    type: "added" | "modified" | "deleted";
+  }>;
+  title: string;
+  description: string;
+  base_branch: string;
+  head_branch: string;
+}
+
+export interface DocInfo {
+  files: Array<{
+    path: string;
+    content: string | null;
+    type: "doc" | "navigation";
+    lastModified?: string;
+  }>;
+  existingPR?: {
+    number: number;
+    branch: string;
+    files: Array<{
+      path: string;
+      content: string;
+    }>;
+  };
+}
+
 export interface ReviewState {
   owner: string;
   repo: string;
   pull_number: number;
   config: DocUpdateConfig;
-
-  // Analysis results
-  codeAnalysis?: CodeAnalysis;
-  docStructure?: DocStructure;
-
-  // Planning and generation
-  updatePlan?: UpdatePlan;
-  generatedContent?: GeneratedContent;
-  docUpdates?: DocUpdate[];
-
-  // Repository info
-  docsRepo?: {
-    owner: string;
-    repo: string;
-    branch: string;
+  commitInfo?: CommitInfo;
+  docInfo?: DocInfo;
+  branchInfo?: {
+    name: string;
+    sha: string;
+    exists: boolean;
   };
 }

@@ -1,22 +1,22 @@
-import { analyzeCodeChanges } from "./analyzeCodeChanges";
-import { analyzeDocStructure } from "./analyzeDocStructure";
-import { planDocUpdates } from "./planDocUpdates";
-import { generateContent } from "./generateContent";
-import { updateNavigation } from "./updateNavigation";
-import { createDocsPR } from "./createDocsPR";
+import { getCommitInfo } from "./getCommitInfo";
+import { findDocumentation } from "./findDocumentation";
+import { writeDocumentation } from "./writeDocumentation";
+import { commitChange } from "./commitChange";
+import { managePR } from "./managePR";
+import { getBranch } from "./getBranch";
 
 export const actions = [
-  analyzeCodeChanges,
-  analyzeDocStructure,
-  planDocUpdates,
-  generateContent,
-  updateNavigation,
-  createDocsPR,
+  getCommitInfo,
+  findDocumentation,
+  getBranch,
+  writeDocumentation,
+  commitChange,
+  managePR,
 ];
 
-export * from "./analyzeCodeChanges";
-export * from "./analyzeDocStructure";
-export * from "./planDocUpdates";
-export * from "./generateContent";
-export * from "./updateNavigation";
-export * from "./createDocsPR";
+export * from "./getCommitInfo";
+export * from "./findDocumentation";
+export * from "./writeDocumentation";
+export * from "./commitChange";
+export * from "./managePR";
+export * from "./getBranch";

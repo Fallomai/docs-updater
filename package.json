@@ -16,7 +16,7 @@
     "dotenv": "^16.4.7",
     "hono": "^4.0.9",
     "openai": "^4.79.3",
-    "spinai": "*",
+    "spinai": "^1.1.14",
     "tsx": "^4.7.1"
   },
   "devDependencies": {
